@@ -1,0 +1,40 @@
+:root { color-scheme: light; --ink: #172c41; --muted: #506071; --line: #d8e0e6; --accent: #a63622; --pale: #f1f5f8; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body { margin: 0; border-top: 6px solid var(--ink); background: #fff; color: var(--ink); font: 1rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: inherit; text-underline-offset: .25em; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.page { width: min(1100px, calc(100% - 6rem)); margin: 0 auto; }
+.site-header { min-height: 106px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; border-bottom: 1px solid var(--line); }
+.wordmark { display: flex; align-items: center; gap: .9rem; font-size: .9rem; font-weight: 600; text-decoration: none; }
+.monogram { display: grid; place-items: center; width: 42px; height: 42px; background: var(--ink); color: #fff; font: 1.1rem Georgia, serif; }
+nav { display: flex; gap: 1.8rem; font-size: .94rem; }
+nav a { text-decoration: none; }
+.intro { padding: 5.5rem 0 5.1rem; max-width: 930px; }
+.eyebrow { margin: 0 0 1rem; font-size: .82rem; line-height: 1.5; font-weight: 650; letter-spacing: .11em; text-transform: uppercase; color: var(--accent); }
+h1, h2, h3, p { overflow-wrap: break-word; }
+h1 { margin: 0 0 1rem; font: 400 clamp(2.8rem, 6.5vw, 5rem)/1.1 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
+.disciplines { margin: 0 0 2.05rem; color: var(--muted); font-size: 1.06rem; }
+.intro-copy { max-width: 710px; }
+.intro-copy p:first-child { margin: 0 0 1rem; font-size: 1.5rem; line-height: 1.45; }
+.intro-copy p + p { margin: 0 0 1.65rem; color: var(--muted); font-size: 1.05rem; }
+.text-link { font-size: .94rem; text-decoration-thickness: 1px; }
+.research { border-top: 1px solid var(--line); padding: 3.5rem 0 4rem; }
+h2 { font: 400 clamp(1.7rem, 3vw, 2.2rem)/1.2 Georgia, "Times New Roman", serif; margin: 0; letter-spacing: -.015em; }
+.section-heading .eyebrow { margin-bottom: .8rem; }
+.research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: 2.4rem; }
+.research-grid article { border-top: 2px solid var(--ink); padding-top: 1.1rem; }
+.topic-number { color: var(--accent); font-size: .82rem; font-variant-numeric: tabular-nums; }
+h3 { margin: .65rem 0 .65rem; font-size: 1.1rem; font-weight: 650; line-height: 1.4; }
+.research-grid p { margin: 0; color: var(--muted); line-height: 1.65; }
+.connect { margin: 0 0 3rem; padding: 2.4rem; background: var(--pale); display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.connect .eyebrow { margin-bottom: .6rem; }
+.connect p:last-child { color: var(--muted); margin: .8rem 0 0; }
+.contact-links { display: flex; flex-direction: column; gap: .8rem; white-space: nowrap; }
+footer { border-top: 1px solid var(--line); padding: 1.8rem 0 2.3rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .88rem; }
+.skip-link { position: absolute; top: -100px; left: 1rem; background: var(--ink); color: white; padding: .7rem 1rem; }
+.skip-link:focus { top: 1rem; }
+@media (max-width: 760px) { .page { width: calc(100% - 3rem); } .site-header { min-height: 90px; } .wordmark > span:last-child { max-width: 115px; line-height: 1.3; font-size: .8rem; } nav { gap: 1rem; } .intro { padding: 3.4rem 0; } .intro-copy p:first-child { font-size: 1.3rem; } .research { padding: 2.7rem 0; } .research-grid { grid-template-columns: 1fr; gap: 1.8rem; } .research-grid article { padding-top: .8rem; } .connect { flex-direction: column; align-items: flex-start; padding: 1.6rem; gap: 1.3rem; } .contact-links { flex-direction: row; flex-wrap: wrap; gap: 1.3rem; } footer { flex-direction: column; gap: .3rem; } }
+@media (max-width: 380px) { .page { width: calc(100% - 2rem); } .wordmark { gap: .5rem; } .monogram { width: 34px; height: 34px; } .site-header { gap: .6rem; } nav { gap: .7rem; font-size: .88rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
