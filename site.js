@@ -8,7 +8,7 @@
   const photoById = id => data.photos.find(p => p.id === id);
   const link = (url, label, cls = 'text-link') => `<a class="${cls}" href="${safe(url)}">${esc(label)}</a>`;
   const page = document.body.dataset.page || 'home';
-  const nav = [['home','index.html','Home'],['research','research.html','Research'],['cv','cv.html','CV'],['teaching','teaching.html','Teaching and Outreach'],['gallery','gallery.html','Gallery']];
+  const nav = [['home','index.html','Home'],['about','about.html','About'],['research','research.html','Research'],['cv','cv.html','Publications & CV'],['teaching','teaching.html','Teaching and Outreach'],['gallery','gallery.html','Gallery']];
 
   // Enlargements are deliberately restricted to Gallery.
   function imageCard(id, options = {}) {
@@ -19,7 +19,7 @@
     const body = interactive
       ? `<button type="button" class="photo-open" data-image-open="${esc(id)}" aria-label="Enlarge ${esc(p.title)}">${picture}<span class="expand-icon" aria-hidden="true">＋</span></button>`
       : `<div class="photo-static">${picture}</div>`;
-    const label = options.caption === false ? '' : `<figcaption>${esc(p.title)}</figcaption>`;
+    const label = options.caption === false ? '' : `<figcaption>${esc(options.captionText || p.title)}</figcaption>`;
     const credit = p.placeholder ? `<p class="image-credit">Reference image · ${esc(p.credit)}${p.source ? ` · <a href="${safe(p.source)}" target="_blank" rel="noopener noreferrer">Source</a>` : ''}</p>` : '';
     return `<figure class="photo ${p.contain ? 'photo-contain' : ''} ${p.category==='Research images' ? 'scientific-figure' : ''} ${options.className || ''}" data-category="${esc(p.category)}" style="--image-background:${esc(p.background || 'var(--pale)')}">${body}${label}${credit}</figure>`;
   }
@@ -27,59 +27,71 @@
   function imageLink(id,url,label) {
     return `<a class="image-link" href="${esc(url)}" aria-label="${esc(label)}">${imageCard(id,{caption:false})}</a>`;
   }
-  function categoryCard(category) {
+  const approachGroups = () => [...data.methodGroups,{id:'modelling',title:'Modelling and quantitative analysis',intro:'Connect measurements to timescales and evolving physical conditions.',items:data.modellingTools}];
+  const aliases = item => (item.aliases||[]).map(id=>`<span class="anchor-alias" id="${esc(id)}" aria-hidden="true"></span>`).join('');
+  function categoryCard(category, compact = false) {
     const href='research.html#'+category.id;
-    const entries=category.id==='methods'?data.methodGroups:category.projectIds.map(id=>data.projects.find(p=>p.id===id));
-    return `<article class="category-card">${imageLink(category.image,href,'Go to '+category.title)}<div class="category-card-copy"><h3><a href="${esc(href)}">${esc(category.title)}</a></h3><ul>${entries.map(item=>`<li><a href="research.html#${esc(item.id)}">${esc(item.title)}</a></li>`).join('')}</ul></div></article>`;
+    const entries=category.id==='methods'?approachGroups():category.projectIds.map(id=>data.projects.find(p=>p.id===id));
+    return `<article class="category-card">${imageLink(category.image,href,'Go to '+category.title)}<div class="category-card-copy"><h3><a href="${esc(href)}">${esc(category.title)}</a></h3>${compact?`<p>${esc(category.question)}</p>`:`<ul>${entries.map(item=>`<li><a href="research.html#${esc(item.id)}">${esc(item.title)}</a></li>`).join('')}</ul>`}</div></article>`;
   }
   function recordList(entries) {
     return `<div class="record-list">${entries.map(e=>`<article class="record"><p class="record-date">${esc(e.date)}</p><div><h3>${esc(e.title)}</h3>${e.institution ? `<p class="record-institution">${esc(e.institution)}</p>` : ''}<p>${esc(e.text)}</p></div></article>`).join('')}</div>`;
   }
   const header = `<header class="site-header wrap"><a class="wordmark" href="index.html">${esc(data.name)}<span>Earth and Planetary Sciences</span></a><button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">Menu</button><nav id="main-nav" aria-label="Main navigation">${nav.map(([key,url,label])=>`<a href="${url}" ${page === key || (page === 'project' && key === 'research') ? 'aria-current="page"' : ''}>${label}</a>`).join('')}</nav></header><div class="site-banner wrap" aria-label="Mt. Hood banner">${imageCard(data.heroImage,{hero:true,caption:false,position:"center 20%"})}</div>`;
-  const footer = `<footer class="site-footer wrap"><div><p class="footer-name">${esc(data.name)}</p><p>University of California, Davis</p>${link('mailto:'+data.email,data.email)}</div><div class="footer-links">${link(data.groupUrl,'Research group')}${link(data.linkedInUrl,'LinkedIn')}<a class="text-link" href="cv.html">CV</a></div></footer>`;
-  const home = () => `<div class="wrap"><section class="home-intro">${imageCard(data.portraitId,{hero:true,caption:false,className:'home-portrait'})}<div class="home-copy"><p class="eyebrow">${esc(data.professionalIdentity)}</p><h1>${esc(data.name)}</h1><p class="role">${esc(data.role)}</p><p class="affiliation">${esc(data.affiliation)}</p><p>${esc(data.introduction)}</p><p>${esc(data.biography)}</p><div class="home-links">${link('mailto:'+data.email,data.email)}<a class="text-link" href="cv.html">CV and publications <span aria-hidden="true">↗</span></a></div></div></section><section class="section"><div class="section-heading"><div><p class="eyebrow">Research areas</p><h2>Research</h2></div><a class="text-link" href="research.html">Research overview <span aria-hidden="true">↗</span></a></div><div class="category-grid">${data.researchCategories.map(categoryCard).join('')}</div></section></div><div class="wrap"><section class="activity-feature section">${imageLink('poster-session','teaching.html','Go to Teaching and Outreach')}<div><p class="eyebrow">Presentations and education</p><h2>Teaching and Outreach</h2><p>Conference presentations, talks, university teaching, and activities with schools and the public.</p><a class="text-link" href="teaching.html">Presentations, teaching and outreach <span aria-hidden="true">↗</span></a></div></section></div>`;
+  const footer = `<footer class="site-footer wrap"><div><p class="footer-name">${esc(data.name)}</p><p>University of California, Davis</p>${link('mailto:'+data.email,data.email)}</div><div class="footer-links">${link(data.groupUrl,'Research group')}${link(data.linkedInUrl,'LinkedIn')}<a class="text-link" href="cv.html">Publications &amp; CV</a></div></footer>`;
+  function featuredResearch() {
+    const f=data.featuredProject,href='research.html#'+f.id;
+    return `<section class="featured-research section"><p class="eyebrow">Current research · Quartz growth</p><h2><a href="${esc(href)}">${esc(f.title)}</a></h2><p class="feature-summary">${esc(f.summary)}</p>${imageLink(f.image,href,'Read about quartz growth and titanium uptake')}<a class="text-link" href="${esc(href)}">Read about the project <span aria-hidden="true">↗</span></a></section>`;
+  }
+  const home = () => `<div class="wrap"><section class="home-intro">${imageCard(data.portraitId,{hero:true,caption:false,className:'home-portrait'})}<div class="home-copy"><p class="eyebrow">${esc(data.professionalIdentity)}</p><h1>${esc(data.name)}</h1><p class="role">${esc(data.role)}</p><p class="affiliation">${esc(data.affiliation)}</p><p>${esc(data.introduction)}</p><p>${esc(data.biography)}</p><div class="home-links">${link('mailto:'+data.email,data.email)}<a class="text-link" href="about.html">About my work <span aria-hidden="true">↗</span></a><a class="text-link" href="cv.html">Publications &amp; CV <span aria-hidden="true">↗</span></a></div></div></section>${featuredResearch()}<section class="section home-themes"><div class="section-heading"><div><p class="eyebrow">Research programme</p><h2>Research themes</h2></div><a class="text-link" href="research.html">Explore the research <span aria-hidden="true">↗</span></a></div><div class="category-grid theme-grid">${data.researchCategories.filter(c=>c.id!=='methods').map(c=>categoryCard(c,true)).join('')}</div><a class="text-link approaches-link" href="research.html#methods">Experiments, microanalysis and modelling <span aria-hidden="true">↗</span></a></section><section class="activity-feature section">${imageLink('poster-session','teaching.html','Go to Teaching and Outreach')}<div><p class="eyebrow">Presentations and education</p><h2>Teaching and Outreach</h2><p>Connecting geological observations to the processes that shape minerals, landscapes, and planets.</p><a class="text-link" href="teaching.html">Presentations, teaching and outreach <span aria-hidden="true">↗</span></a></div></section></div>`;
+  const about = () => `<div class="wrap about-page">${heading('About',data.aboutLead)}<div class="about-prose">${data.aboutParagraphs.map(p=>`<p>${esc(p)}</p>`).join('')}<div class="about-links"><a class="text-link" href="research.html">Research <span aria-hidden="true">↗</span></a><a class="text-link" href="cv.html">Publications &amp; CV <span aria-hidden="true">↗</span></a><a class="text-link" href="teaching.html">Teaching and Outreach <span aria-hidden="true">↗</span></a></div></div></div>`;
   function sectionHeading(title) {
     return `<div class="category-heading"><h2>${esc(title)}</h2><a class="back-to-projects" href="research.html#research-projects">Research overview ↑</a></div>`;
   }
   function projectRow(p) {
     const primary=p.displayImage||p.image;
-    return `<article class="research-project" id="${esc(p.id)}">${(p.aliases||[]).map(id=>`<span class="anchor-alias" id="${esc(id)}" aria-hidden="true"></span>`).join('')}<div class="project-copy"><h3>${esc(p.title)}</h3><p>${esc(p.displaySummary||p.short)}</p>${p.url?link(p.url,'Read publication'):''}</div>${primary?imageCard(primary,{className:'project-main-image'}):''}</article>`;
+    return `<article class="research-project" id="${esc(p.id)}">${aliases(p)}<div class="project-copy"><h3>${esc(p.title)}</h3><p class="project-question">${esc(p.question)}</p><p>${esc(p.displaySummary||p.short)}</p>${p.url?link(p.url,'Read publication'):''}</div>${primary?imageCard(primary,{className:'project-main-image',captionText:p.displayCaption}):''}</article>`;
   }
   function categorySection(category) {
-    return `<section class="research-area research-category" id="${esc(category.id)}">${sectionHeading(category.title)}<div class="category-projects">${category.projectIds.map(id=>projectRow(data.projects.find(p=>p.id===id))).join('')}</div>${category.id==='modelling'?`<div class="modelling-tools" aria-label="Modelling tools">${data.modellingTools.map(m=>`<div id="${esc(m.id)}"><h3>${esc(m.name)}</h3><p>${esc(m.detail)}</p></div>`).join('')}</div>`:''}</section>`;
+    return `<section class="research-area research-category" id="${esc(category.id)}">${aliases(category)}${sectionHeading(category.title)}<p class="theme-question">${esc(category.question)}</p><div class="category-projects">${category.projectIds.map(id=>projectRow(data.projects.find(p=>p.id===id))).join('')}</div></section>`;
   }
   function methods() {
-    return `<section class="research-area methods-section" id="methods">${sectionHeading('Methods / Instruments')}<div class="method-groups">${data.methodGroups.map(g=>`<section class="method-group" id="${esc(g.id)}"><h3>${esc(g.title)}</h3><ul class="tool-list">${g.items.map(m=>`<li id="${esc(m.id)}">${esc(m.name)}</li>`).join('')}</ul></section>`).join('')}</div><div class="methods-photo-strip">${data.methodPhotos.map(id=>imageCard(id)).join('')}</div></section>`;
+    return `<section class="research-area methods-section" id="methods">${sectionHeading('Approaches')}<div class="method-groups">${approachGroups().map(g=>`<section class="method-group" id="${esc(g.id)}">${aliases(g)}<h3>${esc(g.title)}</h3><p class="method-purpose">${esc(g.intro)}</p><ul class="tool-list">${g.items.map(m=>`<li id="${esc(m.id)}">${esc(m.name)}</li>`).join('')}</ul></section>`).join('')}</div><div class="methods-photo-strip methods-instrument-photos">${data.methodPhotos.map(id=>imageCard(id)).join('')}</div></section>`;
   }
   const research = () => {
-    return `<div class="wrap">${heading('Research',data.researchIntroduction)}<section class="category-index" id="research-projects" aria-label="Research categories"><div class="category-grid">${data.researchCategories.map(categoryCard).join('')}</div></section>${data.researchCategories.filter(c=>c.id!=='methods').map(categorySection).join('')}${methods()}</div>`;
+    return `<div class="wrap">${heading('Research',data.researchIntroduction)}<section class="category-index" id="research-projects" aria-label="Research themes and approaches"><div class="category-grid">${data.researchCategories.map(c=>categoryCard(c)).join('')}</div></section>${data.researchCategories.filter(c=>c.id!=='methods').map(categorySection).join('')}${methods()}</div>`;
   };
   const gallery = () => {
     const photos=data.photos.filter(p=>p.gallery!==false && !p.placeholder);
     return `<div class="wrap">${heading('Gallery',data.galleryIntroduction)}<div class="gallery-controls"><div class="gallery-filters" role="group" aria-label="Filter photographs">${['All images',...new Set(photos.map(p=>p.category))].map((c,i)=>`<button type="button" data-filter="${esc(c)}" aria-pressed="${i===0}">${esc(c)}</button>`).join('')}</div><p>Hover to preview. Click or tap to enlarge.</p></div><p class="sr-only" id="gallery-status" role="status"></p><div class="gallery-grid">${photos.map(p=>imageCard(p.id,{interactive:true,className:p.wide?'gallery-wide':''})).join('')}</div></div>`;
   };
-  const cv = () => `<div class="wrap">${heading('CV')}<div class="cv-download"><div><p class="eyebrow">Curriculum vitae</p><h2>Education and publications</h2><p>${esc(data.cvVersion)} version</p></div>${link(data.cv,'Download CV (PDF)','button-primary')}</div><section class="content-section"><h2>Education</h2>${recordList(data.education)}</section><section class="content-section"><h2>Publications</h2><div class="publication-list">${data.publications.map(p=>`<article class="publication"><p class="record-date">${esc(p.year)}</p><div><h3>${esc(p.title)}</h3><p>${esc(p.authors)}</p><p class="journal">${esc(p.journal)}</p>${link(p.url,'Read publication ↗')}</div></article>`).join('')}</div></section></div>`;
+  const authorList = authors => esc(authors).replace(/Needham, (?:É|E)\./g, match=>`<strong>${match}</strong>`);
+  function publication(p, manuscript = false) {
+    return `<article class="publication${manuscript?' manuscript':''}" id="publication-${esc(p.id)}"><p class="record-date">${esc(manuscript?p.status:p.year)}</p><div><h3>${p.url?`<a href="${safe(p.url)}">${esc(p.title)}</a>`:esc(p.title)}</h3><p class="publication-authors">${authorList(p.authors)}</p>${p.journal?`<p class="journal">${esc(p.journal)}</p>`:''}${p.significance?`<p class="publication-significance">${esc(p.significance)}</p>`:''}<div class="publication-links">${p.doi?link('https://doi.org/'+p.doi,'DOI: '+p.doi):p.url?link(p.url,'Read publication'):''}${p.projectId?`<a class="text-link" href="research.html#${esc(p.projectId)}">Related research <span aria-hidden="true">↗</span></a>`:''}</div></div></article>`;
+  }
+  const cv = () => `<div class="wrap">${heading('Publications & CV')}<div class="cv-download"><div><p class="eyebrow">Curriculum vitae</p><h2>Full academic CV</h2><p>${esc(data.cvVersion)} version</p></div>${link(data.cv,'Download CV (PDF)','button-primary')}</div><section class="content-section"><h2>Published</h2><div class="publication-list">${data.publications.map(p=>publication(p)).join('')}</div></section>${data.manuscripts?.length?`<section class="content-section"><h2>In preparation</h2><div class="publication-list">${data.manuscripts.map(p=>publication(p,true)).join('')}</div></section>`:''}<section class="content-section"><h2>Education</h2>${recordList(data.education)}</section></div>`;
   function activity(e) {
     return `<article class="activity-record ${e.photos.length?'with-photos':''}" data-activity-category="${esc(e.category)}" id="activity-${esc(e.id)}"><div class="activity-date">${e.date?`<p>${esc(e.date)}</p>`:''}</div><div class="activity-copy"><p class="activity-kind">${esc(e.type)}</p><h3>${esc(e.title)}</h3>${e.subtitle?`<p class="activity-subtitle">${esc(e.subtitle)}</p>`:''}${e.event||e.location?`<p class="activity-event">${esc([e.event,e.location].filter(Boolean).join(' · '))}</p>`:''}${e.authors?`<p class="activity-authors">${esc(e.authors)}</p>`:''}${e.text?`<p>${esc(e.text)}</p>`:''}${e.status?`<p class="activity-status">${esc(e.status)}</p>`:''}</div>${e.photos.length?`<div class="activity-photos">${e.photos.map(id=>imageCard(id)).join('')}</div>`:''}</article>`;
   }
   const selectedActivities=()=>data.activities.filter(e=>e.selected===true&&(!e.status||e.includeScheduled===true));
   function tourGuiding() {
     const t=data.tourGuiding;
-    return `<section class="tour-guiding" id="grand-canyon-guiding"><div class="tour-heading"><p class="eyebrow">Public geology</p><h2>${esc(t.title)}</h2><p class="tour-company">${esc(t.company)}</p></div><div class="tour-copy"><p>${esc(t.text)}</p>${t.photos.length?`<div class="tour-photos">${t.photos.map(id=>imageCard(id)).join('')}</div>`:''}${t.reviews.length?`<div class="tour-reviews">${t.reviews.map(r=>`<figure><blockquote>${esc(r.quote)}</blockquote><figcaption>${esc(r.attribution)}${r.url?' · '+link(r.url,'Read review'):''}</figcaption></figure>`).join('')}</div>`:''}</div></section>`;
+    return `<section class="tour-guiding" id="grand-canyon-guiding"><div class="tour-text"><div class="tour-heading"><p class="eyebrow">Public geology</p><h2>${esc(t.title)}</h2><p class="tour-company">${esc(t.company)}</p></div><div class="tour-copy"><p>${esc(t.text)}</p>${t.reviews.length?`<div class="tour-reviews">${t.reviews.map(r=>`<figure><blockquote>${esc(r.quote)}</blockquote><figcaption>${esc(r.attribution)}${r.url?' · '+link(r.url,'Read review'):''}</figcaption></figure>`).join('')}</div>`:''}</div></div>${t.photos.length?`<div class="tour-photos">${t.photos.map(id=>imageCard(id)).join('')}</div>`:''}</section>`;
   }
   const teaching = () => `<div class="wrap">${heading('Presentations, Teaching and Outreach',data.activityIntroduction)}<div class="activity-photo-strip">${imageCard('poster-session')}${imageCard('science-talk')}</div>${tourGuiding()}<div class="activity-toolbar"><div class="activity-filters" role="group" aria-label="Filter activities">${['All','Talks','Posters','Teaching','Outreach & service','Collaborations'].map((c,i)=>`<button type="button" data-activity-filter="${esc(c)}" aria-pressed="${i===0}">${esc(c)}</button>`).join('')}</div><p id="activity-status" role="status">${selectedActivities().length} entries</p></div><div class="activity-list">${selectedActivities().map(activity).join('')}</div></div>`;
   // Legacy individual-project URLs now open a section on the unified Research page.
   const project = research;
-  const views = {home,research,cv,teaching,gallery,project};
+  const views = {home,about,research,cv,teaching,gallery,project};
   // RENDER_START
   $('#site-header').innerHTML = header;
   $('#main').innerHTML = (views[page] || home)();
   $('#site-footer').innerHTML = footer;
   if(page === 'project') {
     const requested = new URLSearchParams(location.search).get('id');
-    const aliases={volcanoes:'volcanology',crystals:'experimental-petrology',moon:'lunar-breccias'};
-    const id=aliases[requested] || requested;
-    location.replace('research.html'+(data.projects.some(p=>p.id===id)||data.researchCategories.some(c=>c.id===id)||id==='methods'?'#'+id:''));
+    const legacyAliases={volcanoes:'volcanology',crystals:'experimental-petrology',moon:'lunar-breccias'};
+    const id=legacyAliases[requested] || requested;
+    const known=[...data.projects,...data.researchCategories,...approachGroups()].flatMap(item=>[item.id,...(item.aliases||[]),...(item.items||[]).map(m=>m.id)]);
+    location.replace('research.html'+(known.includes(id)?'#'+id:''));
   } else {
     const revealHash=()=>{
       const target=document.getElementById(location.hash.slice(1));

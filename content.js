@@ -1,8 +1,8 @@
 window.SITE_CONTENT = {
   "name": "Éamonn Needham",
   "role": "Postdoctoral Researcher",
-  "introduction": "I am a volcanologist, geochemist, and experimental petrologist at the University of California, Davis. I use experiments, microscopy, and geochemical measurements to study magmatic processes on Earth and the Moon.",
-  "biography": "My research focuses on volcanic fragmentation, mineral growth, diffusion, and the interpretation of geochemical records.",
+  "introduction": "I study how igneous processes become recorded in rocks and minerals, from volcanic systems on Earth to ancient magmas on the Moon.",
+  "biography": "My research treats physical and chemical heterogeneity as a fundamental feature of igneous systems. I combine experiments, microanalysis, field observations, and numerical models to understand how geological records form and change, and to test the assumptions used to interpret them.",
   "groupUrl": "https://jwatkins529.github.io/",
   "linkedInUrl": "https://www.linkedin.com/in/eamonn-needham-178535163",
   "email": "eneedham@ucdavis.edu",
@@ -10,6 +10,37 @@ window.SITE_CONTENT = {
   "cv": "assets/eamonn-needham-cv-oct-2026.pdf",
   "poster": "",
   "photos": [
+    {
+      "id": "grand-canyon-explaining",
+      "original": "PXL_20250927_202307140.MP.jpg",
+      "title": "Geology at the Grand Canyon",
+      "category": "Field & landscapes",
+      "thumbnail": "assets/grand-canyon-explaining.jpg",
+      "full": "assets/grand-canyon-explaining.jpg",
+      "alt": "Éamonn gesturing with both hands beside the layered walls of the Grand Canyon.",
+      "caption": "Éamonn at the Grand Canyon.",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "position": "center 52%",
+      "gallery": true
+    },
+    {
+      "id": "grand-canyon-guiding",
+      "title": "At the Grand Canyon",
+      "category": "Field & landscapes",
+      "thumbnail": "assets/grand-canyon-guiding.png",
+      "full": "assets/grand-canyon-guiding.png",
+      "alt": "Éamonn gesturing toward the Grand Canyon from an overlook.",
+      "caption": "Éamonn at a Grand Canyon overlook.",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "position": "center",
+      "gallery": true
+    },
     {
       "id": "mountain-landscape",
       "title": "Mt. Hood, Oregon",
@@ -539,6 +570,91 @@ window.SITE_CONTENT = {
       "caption": "Epidosite experimental product. Scale bar: 10 µm.",
       "thumbnail": "assets/epidosite-product.webp",
       "full": "assets/epidosite-product.webp"
+    },
+    {
+      "id": "microscope-screen-detail",
+      "original": "PXL_20260309_221028134.jpg",
+      "title": "Microscope screen detail",
+      "alt": "Photograph of a microscope display showing a curved sample feature and on-screen crosshairs.",
+      "caption": "A photograph of the microscope display during laboratory work.",
+      "contain": true,
+      "background": "#21282c",
+      "category": "Laboratory",
+      "thumbnail": "assets/microscope-screen-detail.jpg",
+      "full": "assets/microscope-screen-detail.jpg",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "gallery": true,
+      "position": "center"
+    },
+    {
+      "id": "cleanroom-portrait",
+      "original": "PXL_20260218_223049314.jpg",
+      "title": "In the cleanroom",
+      "alt": "Éamonn wearing a cleanroom hood, gown, and face mask in a laboratory.",
+      "caption": "Éamonn in cleanroom clothing during laboratory work.",
+      "position": "center 36%",
+      "category": "Laboratory",
+      "thumbnail": "assets/cleanroom-portrait.jpg",
+      "full": "assets/cleanroom-portrait.jpg",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "gallery": true
+    },
+    {
+      "id": "diffraction-screen",
+      "original": "PXL_20251113_235601482.jpg",
+      "title": "Diffraction screen",
+      "alt": "Green circular microscope viewing screen with a pattern of bright diffraction spots and a dark beam stop.",
+      "caption": "A diffraction pattern photographed on the microscope viewing screen.",
+      "contain": true,
+      "background": "#030504",
+      "category": "Laboratory",
+      "thumbnail": "assets/diffraction-screen.jpg",
+      "full": "assets/diffraction-screen.jpg",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "gallery": true,
+      "position": "center"
+    },
+    {
+      "id": "microscope-chamber",
+      "original": "PXL_20251029_171941369.jpg",
+      "title": "Electron microscope chamber",
+      "alt": "Open electron microscope chamber showing the metal sample stage, mounted sample, and detector hardware.",
+      "caption": "The open sample chamber and stage of an electron microscope.",
+      "position": "center 56%",
+      "category": "Laboratory",
+      "thumbnail": "assets/microscope-chamber.jpg",
+      "full": "assets/microscope-chamber.jpg",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "gallery": true
+    },
+    {
+      "id": "tem-instrument",
+      "original": "PXL_20251016_203057407.jpg",
+      "title": "Transmission electron microscope",
+      "alt": "A JEOL transmission electron microscope with its tall column, viewing controls, and computer display.",
+      "caption": "A transmission electron microscope (TEM).",
+      "contain": true,
+      "category": "Laboratory",
+      "thumbnail": "assets/tem-instrument.jpg",
+      "full": "assets/tem-instrument.jpg",
+      "credit": "From Éamonn Needham’s collection",
+      "placeholder": false,
+      "source": "",
+      "wide": false,
+      "gallery": true,
+      "position": "center"
     }
   ],
   "projects": [
@@ -548,7 +664,7 @@ window.SITE_CONTENT = {
       "field": "Volcanology",
       "image": "tecolote-thin-sections",
       "short": "Fragmentation and scoria formation in explosive basaltic eruptions.",
-      "question": "How do heterogeneous fragmentation processes produce scoria?",
+      "question": "How does basaltic magma fragment during highly explosive eruptions?",
       "approach": "I use micro-textural analysis of scoria from Tecolote, Mexico, to investigate fragmentation and particle formation. This work identifies a scoria formation mechanism involving simultaneous brittle and ductile fragmentation at fine scales.",
       "figures": [
         "scoria-zonation",
@@ -556,7 +672,8 @@ window.SITE_CONTENT = {
       ],
       "aliases": [],
       "displayImage": "scoria-zonation",
-      "displaySummary": "Micro-textural analysis of Tecolote scoria examines particle formation and the juxtaposition of brittle and ductile fragmentation products."
+      "displaySummary": "Scoria from Tecolote preserves contrasting textures within individual clasts. I use these juxtaposed domains to investigate the contributions of brittle and ductile fragmentation, and how particles are assembled into the erupted products.",
+      "displayCaption": "Mapped textural domains in a single scoria clast from Tecolote, sample 1a-09. Scale bar: 2 mm."
     },
     {
       "id": "titaniq",
@@ -564,7 +681,7 @@ window.SITE_CONTENT = {
       "field": "Experimental petrology",
       "image": "titaniq",
       "short": "Quartz growth, titanium incorporation, and thermobarometry.",
-      "question": "When does titanium in quartz reliably record temperature and pressure?",
+      "question": "Can quartz inherit its chemistry before it becomes a crystal?",
       "approach": "Quartz growth experiments and microscopy test how titanium is incorporated, including the role of amorphous precursors, and what these processes mean for TitaniQ thermobarometry.",
       "figures": [
         "titaniq",
@@ -574,7 +691,8 @@ window.SITE_CONTENT = {
         "titaniq-project"
       ],
       "displayImage": "titaniq",
-      "displaySummary": "Quartz growth experiments test titanium incorporation, the role of amorphous precursors, and the assumptions behind TitaniQ thermobarometry."
+      "displaySummary": "Time-series experiments point to a possible role for amorphous precursors in titanium uptake. I combine experiments and electron microscopy to test this growth pathway and assess when Ti-in-quartz thermobarometry reliably records crystallization conditions.",
+      "displayCaption": "Electron microscopy of an experimental product from the titanium-in-quartz study."
     },
     {
       "id": "mt-hood",
@@ -582,7 +700,7 @@ window.SITE_CONTENT = {
       "field": "Magma storage",
       "image": "hood-storage",
       "short": "Storage conditions, thermal histories, and crystal residence times.",
-      "question": "How variable are magma storage conditions beneath Mt. Hood?",
+      "question": "How can warm and cold storage histories coexist in one magma reservoir?",
       "approach": "Sr and Mg diffusion modelling, U–Th disequilibria dating, and Ti-in-zircon thermometry constrain magma storage conditions. This work identifies simultaneous warm and cold storage regimes within a single reservoir beneath Mt. Hood.",
       "figures": [
         "hood-storage"
@@ -591,7 +709,8 @@ window.SITE_CONTENT = {
         "mt-hood-project"
       ],
       "displayImage": "hood-storage",
-      "displaySummary": "Sr–Mg diffusion modelling, U–Th dating, and Ti-in-zircon thermometry reveal simultaneous warm and cold storage within a single magma reservoir."
+      "displaySummary": "Sr–Mg diffusion modelling, U–Th disequilibria dating, and Ti-in-zircon thermometry reveal contrasting thermal histories beneath Mt. Hood. These records support simultaneous warm and cold storage, showing why a single temperature–time history can miss the reservoir’s internal variability.",
+      "displayCaption": "Conceptual view of heterogeneous magma storage beneath Mt. Hood."
     },
     {
       "id": "pyramid-peak",
@@ -599,7 +718,7 @@ window.SITE_CONTENT = {
       "field": "Isotopes and diffusion",
       "image": "pyramid-field",
       "short": "Calcium isotope diffusion and the thermal evolution of an intrusion.",
-      "question": "What can calcium isotope gradients tell us about intrusion cooling?",
+      "question": "What controls how long neighbouring magmas exchange elements and isotopes?",
       "approach": "Field observations and intrusion textures guide thermal and chemical diffusion modelling, linking calcium isotope variations to element transport and the thermal evolution of the intrusion.",
       "figures": [
         "pyramid-field",
@@ -609,7 +728,8 @@ window.SITE_CONTENT = {
         "pyramid-peak-project"
       ],
       "displayImage": "thermal-chemical-model",
-      "displaySummary": "Thermal–chemical models connect calcium isotope gradients, intrusion textures, and field observations to element transport and cooling."
+      "displaySummary": "At Pyramid Peak, calcium-isotope gradients across an intrusive contact record chemical exchange during cooling. I combine measured profiles, field relationships, and thermal–chemical modelling to connect those gradients with the duration of diffusion and the evolving physical state of the intrusion.",
+      "displayCaption": "Thermal–chemical model showing temperature and liquid fraction through time and distance from an intrusive contact."
     },
     {
       "id": "lunar-breccias",
@@ -617,7 +737,7 @@ window.SITE_CONTENT = {
       "field": "Lunar geochemistry",
       "image": "lunar-breccia",
       "short": "Testing mineral–glass relationships and impact modification.",
-      "question": "Do minerals and their surrounding glass preserve a common history?",
+      "question": "How pristine are “pristine” lunar samples?",
       "approach": "Al-in-zircon systematics reveal fine-scale disequilibrium between zircons and their host melts or melt inclusions. These relationships indicate extensive impact modification of supposedly pristine lunar samples, while the zircons preserve their original compositions.",
       "figures": [
         "lunar-breccia",
@@ -627,8 +747,9 @@ window.SITE_CONTENT = {
       "aliases": [
         "lunar"
       ],
-      "displayImage": "lunar-breccia",
-      "displaySummary": "Al-in-zircon systematics test whether zircons and surrounding glass share a common history, revealing impact modification while preserving records of early lunar magmas."
+      "displayImage": "lunar-clast",
+      "displaySummary": "Al-in-zircon systematics reveal disequilibrium between zircons and their surrounding glass in lunar breccias. This work identifies impact modification in samples previously treated as pristine and tests which parts of the mineral record can still constrain early lunar magmas.",
+      "displayCaption": "Zircon and surrounding melt in felsic clast 73235,60 (“Cracker”). Scale bar: 50 µm."
     },
     {
       "id": "ocellar-quartz",
@@ -636,7 +757,7 @@ window.SITE_CONTENT = {
       "field": "Mineral textures",
       "image": "ocellar-quartz",
       "short": "Mineral growth and processes in magma plumbing systems.",
-      "question": "What do ocellar quartz textures reveal about mineral growth?",
+      "question": "What processes produce ocellar quartz textures?",
       "approach": "I examine these textures through field observations and petrography to investigate crystal growth and processes within magma plumbing systems.",
       "figures": [
         "ocellar-quartz"
@@ -645,7 +766,8 @@ window.SITE_CONTENT = {
         "ocellar-quartz-project"
       ],
       "displayImage": "ocellar-quartz",
-      "displaySummary": "Field observations and petrography connect ocellar quartz textures to crystal growth and processes within magma plumbing systems."
+      "displaySummary": "I investigate these textures using petrography and field relationships. Connecting individual grains and their surroundings to the wider intrusion helps test how crystal growth and interactions between magmas shape the mineral textures preserved in the rock.",
+      "displayCaption": "Ocellar quartz in cross-polarized light, sample 24-PP-20. Scale bar: 1 mm."
     },
     {
       "id": "fault-healing",
@@ -659,7 +781,8 @@ window.SITE_CONTENT = {
       "figures": [],
       "aliases": [],
       "displayImage": "experiment",
-      "displaySummary": "Quartz growth experiments investigate the development of cohesion and its relationship to fault healing and tremor."
+      "displaySummary": "Experiments investigate how growing quartz develops connections and cohesion between grains. I am examining how that progressive change in material behaviour relates to fault healing and tremor, linking mineral growth at small scales to the mechanical behaviour of rocks.",
+      "displayCaption": "Laboratory context: an experimental assembly."
     },
     {
       "id": "cryptotephra",
@@ -668,14 +791,15 @@ window.SITE_CONTENT = {
       "image": "toba-cryptotephra",
       "visualLabel": "Cryptotephra",
       "short": "Sourcing volcanic glass shards in archaeological records.",
-      "question": "How reliably can small glass shards identify their volcanic source?",
+      "question": "When can a tiny glass shard reliably identify its volcanic source?",
       "approach": "I develop trace element methods to source archaeologically significant cryptotephra and investigate how archaeological fires can modify the geochemical records preserved in volcanic glass.",
       "figures": [
         "toba-cryptotephra"
       ],
       "aliases": [],
       "displayImage": "toba-cryptotephra",
-      "displaySummary": "Trace element methods source volcanic glass in archaeological records and test how heating can modify the geochemical signatures used for correlation."
+      "displaySummary": "I develop trace-element methods for sourcing cryptotephra in archaeological deposits and investigate how heating by archaeological fires can modify volcanic glass. The aim is to distinguish source signatures from later alteration when correlating eruptions with the archaeological record.",
+      "displayCaption": "Toba cryptotephra shard with an analysis location marked."
     }
   ],
   "publications": [
@@ -684,14 +808,21 @@ window.SITE_CONTENT = {
       "title": "Pervasive impact modification of pristine lunar clasts",
       "authors": "Barboni, M., Needham, E., Trail, D., Bell, E. A., & Chen, H.-Y.",
       "journal": "Nature Communications 16, 2485.",
-      "url": "https://doi.org/10.1038/s41467-025-57691-z"
+      "url": "https://doi.org/10.1038/s41467-025-57691-z",
+      "id": "lunar-2025",
+      "doi": "10.1038/s41467-025-57691-z",
+      "projectId": "lunar-breccias",
+      "significance": "Al-in-zircon measurements reveal mineral–glass disequilibrium and impact reworking in lunar clasts classified as pristine."
     },
     {
       "year": "2022",
       "title": "In-situ U–Pb dating of zircon coronas, Sr–Nd–Hf isotopes and petrological constraints of the Daxigou anorthosite complex, NW China",
       "authors": "Yuan, Q., Zhang, C., Cheng, F., Cao, X., Needham, E., Zheng, H., & Lü, X.",
       "journal": "Gondwana Research.",
-      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1342937X21002574"
+      "url": "https://doi.org/10.1016/j.gr.2021.09.002",
+      "id": "daxigou-2022",
+      "doi": "10.1016/j.gr.2021.09.002",
+      "significance": "Combines zircon geochronology, isotope geochemistry, and petrology to constrain the evolution of the Daxigou anorthosite complex."
     }
   ],
   "portraitId": "field-portrait",
@@ -716,31 +847,34 @@ window.SITE_CONTENT = {
   ],
   "methodGroups": [
     {
-      "id": "mass-spectrometry",
-      "title": "Mass spectrometry",
+      "id": "experimental-apparatus",
+      "title": "Experimental petrology",
       "photos": [
-        "sims-zircon",
-        "plagioclase-la-icp-ms"
+        "lab"
       ],
       "items": [
         {
-          "id": "la-icp-qqq-ms",
-          "name": "LA-ICP-QQQ-MS",
-          "detail": "Laser ablation triple quadrupole ICP-MS; trace elements in plagioclase and glass, method development, instrument maintenance, and laboratory management."
+          "id": "cold-seal",
+          "name": "Cold-seal pressure vessels",
+          "detail": "Rapid-quench, decompression, and stalling experiments; sample construction and apparatus operation."
         },
         {
-          "id": "sims",
-          "name": "SIMS",
-          "detail": "Secondary ion mass spectrometry; zircon U–Th disequilibria, lunar zircon Pb/Pb dating, aluminum, and trace elements."
+          "id": "piston-cylinder",
+          "name": "Piston-cylinder apparatus",
+          "detail": "High-pressure experiments, capsule design, method development, troubleshooting, and training."
         }
-      ]
+      ],
+      "intro": "Reproduce mineral growth under controlled pressure, temperature, and time."
     },
     {
       "id": "microscopy",
-      "title": "Microscopy and imaging",
+      "title": "Microanalysis and imaging",
       "photos": [
         "sem-2a-51",
-        "tem-liftout"
+        "tem-liftout",
+        "microscope-chamber",
+        "tem-instrument",
+        "diffraction-screen"
       ],
       "items": [
         {
@@ -778,13 +912,32 @@ window.SITE_CONTENT = {
           "name": "Profilometry",
           "detail": "Surface topography measurements."
         }
-      ]
+      ],
+      "intro": "Resolve textures, structures, and relationships between mineral phases."
     },
     {
-      "id": "spectroscopy",
-      "title": "Spectroscopy",
-      "photos": [],
+      "id": "geochemical-analysis",
+      "title": "Geochemical analysis",
+      "intro": "Measure mineral and glass chemistry and test geochemical records.",
+      "aliases": [
+        "mass-spectrometry",
+        "spectroscopy"
+      ],
+      "photos": [
+        "sims-zircon",
+        "plagioclase-la-icp-ms"
+      ],
       "items": [
+        {
+          "id": "la-icp-qqq-ms",
+          "name": "LA-ICP-QQQ-MS",
+          "detail": "Laser ablation triple quadrupole ICP-MS; trace elements in plagioclase and glass, method development, instrument maintenance, and laboratory management."
+        },
+        {
+          "id": "sims",
+          "name": "SIMS",
+          "detail": "Secondary ion mass spectrometry; zircon U–Th disequilibria, lunar zircon Pb/Pb dating, aluminum, and trace elements."
+        },
         {
           "id": "ftir",
           "name": "FTIR and ATR-FTIR",
@@ -794,25 +947,6 @@ window.SITE_CONTENT = {
           "id": "raman",
           "name": "Raman spectroscopy",
           "detail": "Identification of high-pressure silica polymorphs in lunar samples."
-        }
-      ]
-    },
-    {
-      "id": "experimental-apparatus",
-      "title": "Experimental apparatus",
-      "photos": [
-        "lab"
-      ],
-      "items": [
-        {
-          "id": "cold-seal",
-          "name": "Cold-seal pressure vessels",
-          "detail": "Rapid-quench, decompression, and stalling experiments; sample construction and apparatus operation."
-        },
-        {
-          "id": "piston-cylinder",
-          "name": "Piston-cylinder apparatus",
-          "detail": "High-pressure experiments, capsule design, method development, troubleshooting, and training."
         }
       ]
     }
@@ -1477,63 +1611,75 @@ window.SITE_CONTENT = {
       "selected": false
     }
   ],
-  "activityIntroduction": "Presentations, university teaching, collaborative work, and public geology.",
-  "researchIntroduction": "My research treats physical and chemical heterogeneity as a fundamental feature of igneous systems. I combine experiments, imaging, and geochemistry to test the assumptions behind our methods and identify when simplification obscures the processes recorded in rocks.",
+  "activityIntroduction": "My teaching connects observations of minerals, rocks, and landscapes to the processes that formed them. In introductory geology, I move between mineral textures and planetary evolution, using examples from field geology and research to make those connections concrete. My experience includes university lectures and laboratories, school outreach, teacher workshops, and explaining Grand Canyon geology to visitors.",
+  "researchIntroduction": "Rocks and minerals can record several processes at once: growth, mixing, diffusion, fragmentation, and later modification. I investigate how that heterogeneity develops and when it challenges the assumptions used to reconstruct magmatic histories. My projects connect experiments and microanalysis with field observations and numerical models.",
   "researchCategories": [
     {
-      "id": "volcanology",
-      "title": "Volcanology",
-      "image": "tecolote-thin-sections",
+      "id": "magma-dynamics",
+      "title": "Magma dynamics and heterogeneity",
+      "question": "What does heterogeneity reveal about magma storage, exchange, and eruption?",
+      "image": "hood-storage",
       "projectIds": [
-        "tecolote",
-        "cryptotephra"
+        "mt-hood",
+        "pyramid-peak",
+        "tecolote"
+      ],
+      "aliases": [
+        "volcanology"
       ]
     },
     {
-      "id": "experimental-petrology",
-      "title": "Experimental Petrology",
+      "id": "crystal-growth",
+      "title": "Crystal growth and rock behaviour",
+      "question": "How does crystal growth influence mineral chemistry and the physical behaviour of rocks?",
       "image": "titaniq",
       "projectIds": [
         "titaniq",
-        "fault-healing"
+        "fault-healing",
+        "ocellar-quartz"
+      ],
+      "aliases": [
+        "experimental-petrology"
       ]
     },
     {
-      "id": "geochemistry",
-      "title": "Geochemistry & Petrology",
+      "id": "geochemical-records",
+      "title": "Preservation of geochemical records",
+      "question": "Which signals preserve original conditions, and which reflect later modification?",
       "image": "lunar-clast",
       "projectIds": [
         "lunar-breccias",
-        "ocellar-quartz"
-      ]
-    },
-    {
-      "id": "modelling",
-      "title": "Modelling",
-      "image": "thermal-chemical-model",
-      "projectIds": [
-        "mt-hood",
-        "pyramid-peak"
+        "cryptotephra"
+      ],
+      "aliases": [
+        "geochemistry"
       ]
     },
     {
       "id": "methods",
-      "title": "Methods / Instruments",
+      "title": "Approaches",
+      "question": "Experiments, microanalysis, geochemical measurements, and modelling.",
       "image": "lab",
-      "projectIds": []
+      "projectIds": [],
+      "aliases": []
     }
   ],
   "methodsIntroduction": "",
   "modellingTools": [
     {
       "id": "diffusion-modelling",
-      "name": "Diffusion modelling",
+      "name": "Diffusion chronometry",
       "detail": "Sr and Mg in plagioclase; calcium isotope diffusion."
     },
     {
       "id": "thermal-modelling",
       "name": "Thermal–chemical modelling",
       "detail": "Intrusion cooling and element transport."
+    },
+    {
+      "id": "image-analysis",
+      "name": "Image analysis",
+      "detail": "Characterization of mineral and volcanic textures."
     },
     {
       "id": "python",
@@ -1545,15 +1691,60 @@ window.SITE_CONTENT = {
   "cvDownloadName": "eamonn-needham-cv-oct-2026.pdf",
   "methodPhotos": [
     "sims-zircon",
-    "tem-liftout",
-    "epidosite-product"
+    "microscope-chamber",
+    "tem-instrument"
   ],
   "tourGuiding": {
     "title": "Grand Canyon tour guiding",
     "company": "Across Arizona Tours",
     "text": "As a tour guide with Across Arizona Tours, I shared the geology of the Grand Canyon with visitors, connecting the rocks and landscape to the processes that shaped them.",
-    "photos": [],
-    "reviews": []
+    "photos": [
+      "grand-canyon-explaining"
+    ],
+    "reviews": [
+      {
+        "quote": "“one of the most engaging, knowledgeable, and humorous tour guides we have ever had”",
+        "attribution": "Timothy_J · Grand Canyon tour guest · September 2025",
+        "url": "",
+        "sourceFile": "Screenshot_20250921-195746.png"
+      }
+    ]
   },
-  "professionalIdentity": "Volcanologist, Geochemist, and Experimental Petrologist"
+  "professionalIdentity": "Volcanologist, Geochemist, and Experimental Petrologist",
+  "featuredProject": {
+    "id": "titaniq",
+    "title": "Can quartz inherit its chemistry before it becomes a crystal?",
+    "summary": "Quartz growth experiments point to a possible role for amorphous precursors in titanium uptake. I am testing how this growth pathway affects the chemical record used in Ti-in-quartz thermobarometry.",
+    "image": "titaniq"
+  },
+  "aboutLead": "My work connects experimental volcanology, igneous geochemistry, and the interpretation of mineral records.",
+  "aboutParagraphs": [
+    "I began working in experimental volcanology at the University of Oregon, where I completed my B.S. in 2019. My undergraduate research used decompression experiments and observations of volcanic glass to investigate microlite crystallization and magma ascent.",
+    "At Arizona State University, I completed my Ph.D. in Geological and Planetary Sciences in 2025, advised by Mélanie Barboni and Amanda Clarke. My dissertation examined physical and chemical heterogeneity through magma storage beneath Mt. Hood, fragmentation at Tecolote, and impact modification of lunar samples.",
+    "At UC Davis, my postdoctoral research brings quartz growth experiments and microscopy together with diffusion and thermal–chemical modelling. Across these projects, I ask how rocks and minerals acquire their physical and chemical characteristics, how later processes modify them, and which assumptions are justified when reconstructing their histories.",
+    "Teaching and public geology are also part of my work. University teaching, school outreach, and Grand Canyon tour guiding provide different settings for connecting geological observations to the histories of landscapes and planets."
+  ],
+  "manuscripts": [
+    {
+      "id": "hood-manuscript",
+      "title": "Trace element diffusion in plagioclase coupled to zircon thermometry document simultaneous warm and cold magma storage in arc volcanoes",
+      "authors": "Needham, É., & Barboni, M.",
+      "status": "In preparation",
+      "projectId": "mt-hood"
+    },
+    {
+      "id": "cryptotephra-provenance-manuscript",
+      "title": "Archeological stratigraphic provenance of cryptotephra from a supervolcanic eruption",
+      "authors": "Hirniak, J., Needham, É., Karkanas, P., Barboni, M., Smith, E., Campisano, C., & Marean, C.",
+      "status": "In preparation",
+      "projectId": "cryptotephra"
+    },
+    {
+      "id": "cryptotephra-heating-manuscript",
+      "title": "The effects of archaeological fires on volcanic glass",
+      "authors": "Hirniak, J., Needham, É., Karkanas, P., Smith, E., Campisano, C., & Marean, C.",
+      "status": "In preparation",
+      "projectId": "cryptotephra"
+    }
+  ]
 };
