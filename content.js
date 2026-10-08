@@ -1611,7 +1611,7 @@ window.SITE_CONTENT = {
       "selected": false
     }
   ],
-  "activityIntroduction": "My teaching connects observations of minerals, rocks, and landscapes to the processes that formed them. In introductory geology, I move between mineral textures and planetary evolution, using examples from field geology and research to make those connections concrete. My experience includes university lectures and laboratories, school outreach, teacher workshops, and explaining Grand Canyon geology to visitors.",
+  "activityIntroduction": "My teaching combines storytelling and the history of geological ideas with a recurring question: how do we know what we know? From minerals and thin sections to landscapes and planetary evolution, I connect observations to interpretations and the uncertainties that remain. Alongside that broader story, I emphasize practical skills in observation, data interpretation, and building clear, testable explanations.",
   "researchIntroduction": "Rocks and minerals can record several processes at once: growth, mixing, diffusion, fragmentation, and later modification. I investigate how that heterogeneity develops and when it challenges the assumptions used to reconstruct magmatic histories. My projects connect experiments and microanalysis with field observations and numerical models.",
   "researchCategories": [
     {
@@ -1695,9 +1695,9 @@ window.SITE_CONTENT = {
     "tem-instrument"
   ],
   "tourGuiding": {
-    "title": "Grand Canyon tour guiding",
+    "title": "Geology at the Grand Canyon",
     "company": "Across Arizona Tours",
-    "text": "As a tour guide with Across Arizona Tours, I shared the geology of the Grand Canyon with visitors, connecting the rocks and landscape to the processes that shaped them.",
+    "text": "With Across Arizona Tours, I used the Grand Canyon’s rocks and landscape to discuss its geological history with visitors, and how we piece that history together from the evidence.",
     "photos": [
       "grand-canyon-explaining"
     ],
@@ -1708,7 +1708,8 @@ window.SITE_CONTENT = {
         "url": "",
         "sourceFile": "Screenshot_20250921-195746.png"
       }
-    ]
+    ],
+    "aside": "Tips still accepted."
   },
   "professionalIdentity": "Volcanologist, Geochemist, and Experimental Petrologist",
   "featuredProject": {
@@ -1722,7 +1723,7 @@ window.SITE_CONTENT = {
     "I began working in experimental volcanology at the University of Oregon, where I completed my B.S. in 2019. My undergraduate research used decompression experiments and observations of volcanic glass to investigate microlite crystallization and magma ascent.",
     "At Arizona State University, I completed my Ph.D. in Geological and Planetary Sciences in 2025, advised by Mélanie Barboni and Amanda Clarke. My dissertation examined physical and chemical heterogeneity through magma storage beneath Mt. Hood, fragmentation at Tecolote, and impact modification of lunar samples.",
     "At UC Davis, my postdoctoral research brings quartz growth experiments and microscopy together with diffusion and thermal–chemical modelling. Across these projects, I ask how rocks and minerals acquire their physical and chemical characteristics, how later processes modify them, and which assumptions are justified when reconstructing their histories.",
-    "Teaching and public geology are also part of my work. University teaching, school outreach, and Grand Canyon tour guiding provide different settings for connecting geological observations to the histories of landscapes and planets."
+    "Teaching and public geology are also part of my work. University teaching, school outreach, and informal lecturing provide different settings for connecting geological observations to the histories of landscapes and planets."
   ],
   "manuscripts": [
     {
